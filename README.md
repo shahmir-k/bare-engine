@@ -25,6 +25,17 @@ sha256sum out/libbare.so    # 52dd593a…259e
 About 1.3 GB of tools are downloaded into the image; the build needs network access
 (GitHub, npm, and Bare's prebuilt V8 drive).
 
+Or skip building the image and use the published one, by digest:
+
+```sh
+docker run --rm -v "$PWD/out:/out" \
+  ghcr.io/shahmir-k/bare-engine@sha256:b4f4915acfa722e8ae6f841a28153454e680368188c127128067d9f60c7c6ed3
+```
+
+The image is only a convenience. Its own digest is not reproducible (Docker records build
+times), but the `libbare.so` it builds is: an image you build from this repository gives the
+same `52dd593a…`.
+
 ## What is pinned
 
 - **Base image**: Debian bookworm, by digest.
